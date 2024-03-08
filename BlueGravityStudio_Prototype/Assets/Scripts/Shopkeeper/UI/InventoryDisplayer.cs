@@ -3,53 +3,48 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class ShopKeeperUI : MonoBehaviour
+public class InventoryDisplayer : MonoBehaviour
 {
-    [SerializeField] private ShopKeeper _shopKeeper;
+    [SerializeField] private Inventory _inventory;
     [SerializeField] private GameObject _panel;
 
     [SerializeField] private Transform _contentParent;
     [SerializeField] private ItemSlotDisplay _slotPrefab;
 
     private List<ItemSlotDisplay> _slots;
-
     public List<ItemSlotDisplay> Slots => _slots;
-
 
     public Action PanelShown;
     public Action PanelHidden;
     public Action<ItemSlotDisplay> SlotClicked;
-
-    private void Start()
+    private void OnEnable()
     {
-        if (_shopKeeper == null) return;
+        PanelShown?.Invoke();
 
-        _shopKeeper.PlayerEntered += ShowPanel;
-
-        _shopKeeper.PlayerExited += HidePanel;
-
-        _shopKeeper.PlayerEntered += InitializeSlots;
-
-        _shopKeeper.PlayerExited += Deinitialize;
+        InitializeSlots();
     }
 
-    void ShowPanel()
+    private void OnDisable()
+    {
+        PanelHidden?.Invoke();
+
+        Deinitialize();
+    }
+
+    public void ShowPanel()
     {
         _panel.SetActive(true);
-
-        PanelShown?.Invoke();
     }
 
-    void HidePanel()
+    public void HidePanel()
     {
         _panel.SetActive(false);
-
-        PanelHidden?.Invoke();
     }
+
 
     void InitializeSlots()
     {
-        foreach (var itemData in _shopKeeper.AvailableItems)
+        foreach (var itemData in _inventory.AvailableItems)
         {
             var slot = Instantiate(_slotPrefab, _contentParent);
 
@@ -57,14 +52,6 @@ public class ShopKeeperUI : MonoBehaviour
 
             slot.SlotButton.onClick.AddListener(ButtonClickedEvent(slot));
         }
-    }
-
-    private UnityAction ButtonClickedEvent(ItemSlotDisplay slot)
-    {
-        return () =>
-        {
-            SlotClicked.Invoke(slot);
-        };
     }
 
     void Deinitialize()
@@ -75,5 +62,13 @@ public class ShopKeeperUI : MonoBehaviour
         {
             Destroy(_contentParent.GetChild(i).gameObject);
         }
+    }
+
+    private UnityAction ButtonClickedEvent(ItemSlotDisplay slot)
+    {
+        return () =>
+        {
+            SlotClicked.Invoke(slot);
+        };
     }
 }

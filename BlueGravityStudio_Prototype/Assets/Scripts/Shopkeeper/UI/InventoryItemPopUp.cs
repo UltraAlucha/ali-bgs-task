@@ -3,9 +3,9 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
 
-public class ItemPopUp : MonoBehaviour
+public class InventoryItemPopUp : MonoBehaviour
 {
-    [SerializeField] private ShopKeeperUI _shopKeeperUI;
+    [SerializeField] private InventoryDisplayer _shopKeeperUI;
     [SerializeField] private TMP_Text _displayText;
     [SerializeField] private Image _displayImage;
     [SerializeField] private TMP_Text _priceText;
