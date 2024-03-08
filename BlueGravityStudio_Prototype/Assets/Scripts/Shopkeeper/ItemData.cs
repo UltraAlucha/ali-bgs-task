@@ -19,7 +19,7 @@ public class ItemData
 
         if (Amount == 0)
         {
-            ItemRunOut.Invoke();
+            ItemRunOut?.Invoke();
         }
     }
 }

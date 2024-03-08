@@ -386,5 +386,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: PF_Shopkeeper
       objectReference: {fileID: 0}
+    - target: {fileID: 7206728108590126194, guid: 76d50d6af32ad7843b102400a3359ce9, type: 3}
+      propertyPath: m_Name
+      value: ItemPop
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 76d50d6af32ad7843b102400a3359ce9, type: 3}

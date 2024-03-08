@@ -12,38 +12,41 @@ public class ItemSlotDisplay : MonoBehaviour
     [SerializeField] private GameObject _soldIndicator;
     [SerializeField] private Button _slotButton;
 
+    private ItemData _slotData;
+
+    public ItemData SlotData => _slotData;
+
+    public Button SlotButton => _slotButton;
+
     public void Initialize(ItemData itemData)
     {
-        var itemSO = itemData.SellingItem;
+        _slotData = itemData;
+
+        var itemSO = _slotData.SellingItem;
 
         _iconImage.sprite = itemSO.DisplayIcon;
 
-        if (itemData.Amount == 0)
+        if (_slotData.Amount == 0)
         {
             CheckAvailability();
 
             return;
         }
 
-        UpdateAmount(itemData);
+        UpdateAmount(_slotData);
 
         _priceText.text = $"{itemSO.Price}";
 
-        itemData.ItemSold += UpdateAmount;
+        _slotData.ItemSold += UpdateAmount;
 
-        itemData.ItemRunOut += CheckAvailability;
+        _slotData.ItemSold += CheckAvailability;
+    }
 
-        _slotButton.onClick.AddListener(InternalSell);
+    private void OnDestroy()
+    {
+        _slotData.ItemSold -= UpdateAmount;
 
-        void InternalSell()
-        {
-            itemData.Sell();
-
-            itemData.ItemRunOut += () =>
-            {
-                _slotButton.onClick.RemoveListener(InternalSell);
-            };
-        }
+        _slotData.ItemSold -= CheckAvailability;
     }
 
     void UpdateAmount(ItemData itemData)
@@ -51,8 +54,10 @@ public class ItemSlotDisplay : MonoBehaviour
         _amountText.text = $"x{itemData.Amount}";
     }
 
-    void CheckAvailability()
+    void CheckAvailability(ItemData itemData = null)
     {
+        if (_slotData.Amount > 0) return;
+
         _amountIndicator.SetActive(false);
         _priceIndicator.SetActive(false);
         _soldIndicator.SetActive(true);

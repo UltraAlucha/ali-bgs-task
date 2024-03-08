@@ -1,4 +1,7 @@
-﻿using UnityEngine;
+﻿using System;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.Events;
 
 public class ShopKeeperUI : MonoBehaviour
 {
@@ -7,6 +10,15 @@ public class ShopKeeperUI : MonoBehaviour
 
     [SerializeField] private Transform _contentParent;
     [SerializeField] private ItemSlotDisplay _slotPrefab;
+
+    private List<ItemSlotDisplay> _slots;
+
+    public List<ItemSlotDisplay> Slots => _slots;
+
+
+    public Action PanelShown;
+    public Action PanelHidden;
+    public Action<ItemSlotDisplay> SlotClicked;
 
     private void Start()
     {
@@ -24,11 +36,15 @@ public class ShopKeeperUI : MonoBehaviour
     void ShowPanel()
     {
         _panel.SetActive(true);
+
+        PanelShown?.Invoke();
     }
 
     void HidePanel()
     {
         _panel.SetActive(false);
+
+        PanelHidden?.Invoke();
     }
 
     void InitializeSlots()
@@ -38,7 +54,17 @@ public class ShopKeeperUI : MonoBehaviour
             var slot = Instantiate(_slotPrefab, _contentParent);
 
             slot.Initialize(itemData);
+
+            slot.SlotButton.onClick.AddListener(ButtonClickedEvent(slot));
         }
+    }
+
+    private UnityAction ButtonClickedEvent(ItemSlotDisplay slot)
+    {
+        return () =>
+        {
+            SlotClicked.Invoke(slot);
+        };
     }
 
     void Deinitialize()
