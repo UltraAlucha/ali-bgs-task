@@ -1,8 +1,13 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class ShopKeeper : MonoBehaviour
 {
+    [SerializeField] private List<ItemData> _availableItems;
+
+    public List<ItemData> AvailableItems => _availableItems;
+
     public Action PlayerEntered;
     public Action PlayerExited;
 
@@ -29,5 +34,12 @@ public class ShopKeeper : MonoBehaviour
     private void OnPlayerExited()
     {
         PlayerExited?.Invoke();
+    }
+
+    public void SellItem(ItemData itemData)
+    {
+        if (itemData.Amount == 0) return;
+
+        itemData.Amount--;
     }
 }
