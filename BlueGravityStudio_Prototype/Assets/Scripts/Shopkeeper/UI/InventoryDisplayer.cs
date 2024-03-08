@@ -87,4 +87,9 @@ public class InventoryDisplayer : MonoBehaviour
             SlotClicked?.Invoke(slot);
         };
     }
+
+    public void SetViewMode(InventoryViewMode viewMode)
+    {
+        _viewMode = viewMode;
+    }
 }
