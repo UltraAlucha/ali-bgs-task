@@ -1,13 +1,16 @@
 ﻿using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-using static UnityEditor.Progress;
 
 public class ItemSlotDisplay : MonoBehaviour
 {
     [SerializeField] private Image _iconImage;
     [SerializeField] private TMP_Text _amountText;
     [SerializeField] private TMP_Text _priceText;
+    [SerializeField] private GameObject _priceIndicator;
+    [SerializeField] private GameObject _amountIndicator;
+    [SerializeField] private GameObject _soldIndicator;
+    [SerializeField] private Button _slotButton;
 
     public void Initialize(ItemData itemData)
     {
@@ -21,7 +24,19 @@ public class ItemSlotDisplay : MonoBehaviour
 
         itemData.ItemSold += UpdateAmount;
 
-        itemData.ItemRunOut += UpdatePriceText;
+        itemData.ItemRunOut += CheckAvailability;
+
+        _slotButton.onClick.AddListener(InternalSell);
+
+        void InternalSell()
+        {
+            itemData.Sell();
+
+            itemData.ItemRunOut += () =>
+            {
+                _slotButton.onClick.RemoveListener(InternalSell);
+            };
+        }
     }
 
     void UpdateAmount(ItemData itemData)
@@ -29,8 +44,10 @@ public class ItemSlotDisplay : MonoBehaviour
         _amountText.text = $"x{itemData.Amount}";
     }
 
-    void UpdatePriceText()
+    void CheckAvailability()
     {
-        _priceText.text = $"SOLD";
+        _amountIndicator.SetActive(false);
+        _priceIndicator.SetActive(false);
+        _soldIndicator.SetActive(true);
     }
 }
