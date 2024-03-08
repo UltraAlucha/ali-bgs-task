@@ -14,11 +14,18 @@ public class ItemSlotDisplay : MonoBehaviour
 
     public void Initialize(ItemData itemData)
     {
-        UpdateAmount(itemData);
-
         var itemSO = itemData.SellingItem;
 
         _iconImage.sprite = itemSO.DisplayIcon;
+
+        if (itemData.Amount == 0)
+        {
+            CheckAvailability();
+
+            return;
+        }
+
+        UpdateAmount(itemData);
 
         _priceText.text = $"{itemSO.Price}";
 

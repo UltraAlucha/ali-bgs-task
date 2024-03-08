@@ -1,7 +1,7 @@
 ﻿using System;
 
 [Serializable]
-public struct ItemData
+public class ItemData
 {
     public SellingItem SellingItem;
     public int Amount;

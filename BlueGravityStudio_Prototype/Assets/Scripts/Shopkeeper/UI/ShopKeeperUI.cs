@@ -35,8 +35,6 @@ public class ShopKeeperUI : MonoBehaviour
     {
         foreach (var itemData in _shopKeeper.AvailableItems)
         {
-            if (itemData.Amount == 0) continue;
-
             var slot = Instantiate(_slotPrefab, _contentParent);
 
             slot.Initialize(itemData);
