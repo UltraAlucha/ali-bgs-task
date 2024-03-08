@@ -47,7 +47,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ce87deff9d8e8e408ca640e1b64e23a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _shopPanel: {fileID: 4681038184068353331}
 --- !u!61 &1954387381
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -947,6 +946,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4681038184111073406}
+  - component: {fileID: 733938149}
   m_Layer: 0
   m_Name: UI
   m_TagString: Untagged
@@ -970,3 +970,17 @@ Transform:
   m_Father: {fileID: 4681038182504496168}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &733938149
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4681038184111073401}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 035278561807b8c4c9d87b42d191f08f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _shopKeeper: {fileID: 1954387380}
+  _panel: {fileID: 4681038184068353331}
