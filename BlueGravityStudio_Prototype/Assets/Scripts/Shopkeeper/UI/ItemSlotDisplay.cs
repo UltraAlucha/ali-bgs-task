@@ -1,6 +1,7 @@
 ﻿using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using static UnityEditor.Progress;
 
 public class ItemSlotDisplay : MonoBehaviour
 {
@@ -10,12 +11,26 @@ public class ItemSlotDisplay : MonoBehaviour
 
     public void Initialize(ItemData itemData)
     {
-        _amountText.text = $"x{itemData.Amount}";
+        UpdateAmount(itemData);
 
         var itemSO = itemData.SellingItem;
 
         _iconImage.sprite = itemSO.DisplayIcon;
 
         _priceText.text = $"{itemSO.Price}";
+
+        itemData.ItemSold += UpdateAmount;
+
+        itemData.ItemRunOut += UpdatePriceText;
+    }
+
+    void UpdateAmount(ItemData itemData)
+    {
+        _amountText.text = $"x{itemData.Amount}";
+    }
+
+    void UpdatePriceText()
+    {
+        _priceText.text = $"SOLD";
     }
 }

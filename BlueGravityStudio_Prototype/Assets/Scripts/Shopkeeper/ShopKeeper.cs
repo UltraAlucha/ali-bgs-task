@@ -38,8 +38,6 @@ public class ShopKeeper : MonoBehaviour
 
     public void SellItem(ItemData itemData)
     {
-        if (itemData.Amount == 0) return;
-
-        itemData.Amount--;
+        itemData.Sell();
     }
 }
