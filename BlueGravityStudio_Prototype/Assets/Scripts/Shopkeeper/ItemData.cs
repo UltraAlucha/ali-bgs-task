@@ -9,6 +9,12 @@ public class ItemData
     public Action<ItemData> ItemSold;
     public Action ItemRunOut;
 
+    public ItemData(SellingItem sellingItem, int amount = 1)
+    {
+        SellingItem = sellingItem;
+        Amount = amount;
+    }
+
     public void Sell()
     {
         if (Amount == 0) return;
