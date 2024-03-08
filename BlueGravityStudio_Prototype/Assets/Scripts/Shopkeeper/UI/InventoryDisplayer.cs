@@ -41,7 +41,6 @@ public class InventoryDisplayer : MonoBehaviour
         _panel.SetActive(false);
     }
 
-
     void InitializeSlots()
     {
         foreach (var itemData in _inventory.AvailableItems)
