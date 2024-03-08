@@ -341,6 +341,10 @@ PrefabInstance:
       value: PF_UI
       objectReference: {fileID: 0}
     - target: {fileID: 6614465716795092311, guid: db619e50b2c49f940ae46fabb0c3c0a3, type: 3}
+      propertyPath: _viewMode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6614465716795092311, guid: db619e50b2c49f940ae46fabb0c3c0a3, type: 3}
       propertyPath: _inventory
       value: 
       objectReference: {fileID: 686802918}

@@ -1,28 +1,31 @@
 ﻿using TMPro;
 using UnityEngine;
-using UnityEngine.Events;
 using UnityEngine.UI;
 
 public class InventoryItemPopUp : MonoBehaviour
 {
-    [SerializeField] private InventoryDisplayer _shopKeeperUI;
-    [SerializeField] private TMP_Text _displayText;
-    [SerializeField] private Image _displayImage;
-    [SerializeField] private TMP_Text _priceText;
-    [SerializeField] private GameObject _body;
-    [SerializeField] private Button _buyButton;
+    [SerializeField] protected InventoryDisplayer _inventoryDisplayer;
+    [SerializeField] protected TMP_Text _displayText;
+    [SerializeField] protected Image _displayImage;
+    [SerializeField] protected TMP_Text _priceText;
+    [SerializeField] protected GameObject _body;
 
-    private void Awake()
+    public void Activate()
     {
-        _shopKeeperUI.PanelHidden += HideDetails;
+        _inventoryDisplayer.PanelHidden += HideDetails;
 
-        _shopKeeperUI.SlotClicked += ShowDetails;
+        _inventoryDisplayer.SlotClicked += ShowDetails;
     }
 
-    private void ShowDetails(ItemSlotDisplay itemSlot)
+    public void Deactivate()
     {
-        _buyButton.onClick.RemoveAllListeners();
+        _inventoryDisplayer.PanelHidden -= HideDetails;
 
+        _inventoryDisplayer.SlotClicked -= ShowDetails;
+    }
+
+    protected virtual void ShowDetails(ItemSlotDisplay itemSlot)
+    {
         _body.SetActive(true);
 
         _displayText.text = itemSlot.SlotData.SellingItem.DisplayName;
@@ -30,24 +33,9 @@ public class InventoryItemPopUp : MonoBehaviour
         _priceText.text = itemSlot.SlotData.SellingItem.Price.ToString();
 
         _displayImage.sprite = itemSlot.SlotData.SellingItem.DisplayIcon;
-
-        _buyButton.onClick.AddListener(BuyEvent(itemSlot));
     }
 
-    private UnityAction BuyEvent(ItemSlotDisplay itemSlot)
-    {
-        return () =>
-        {
-            itemSlot.SlotData.Sell();
-
-            if (itemSlot.SlotData.Amount <= 0)
-            {
-                HideDetails();
-            }
-        };
-    }
-
-    private void HideDetails()
+    protected void HideDetails()
     {
         _body.SetActive(false);
     }

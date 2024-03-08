@@ -3,6 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
+public enum InventoryViewMode
+{
+    View, Sell, Buy
+}
+
 public class InventoryDisplayer : MonoBehaviour
 {
     [SerializeField] private Inventory _inventory;
@@ -10,6 +15,13 @@ public class InventoryDisplayer : MonoBehaviour
 
     [SerializeField] private Transform _contentParent;
     [SerializeField] private ItemSlotDisplay _slotPrefab;
+    [SerializeField] private InventoryViewMode _viewMode;
+
+    public InventoryViewMode ViewMode
+    {
+        get { return _viewMode; }
+        set { _viewMode = value; }
+    }
 
     private List<ItemSlotDisplay> _slots;
     public List<ItemSlotDisplay> Slots => _slots;
@@ -17,28 +29,33 @@ public class InventoryDisplayer : MonoBehaviour
     public Action PanelShown;
     public Action PanelHidden;
     public Action<ItemSlotDisplay> SlotClicked;
+
+    public Action SellRequested;
+    public Action BuyRequested;
+    public Action ViewRequested;
+
     private void OnEnable()
     {
-        PanelShown?.Invoke();
-
         InitializeSlots();
     }
 
     private void OnDisable()
     {
-        PanelHidden?.Invoke();
-
         Deinitialize();
     }
 
     public void ShowPanel()
     {
         _panel.SetActive(true);
+
+        PanelShown?.Invoke();
     }
 
     public void HidePanel()
     {
         _panel.SetActive(false);
+
+        PanelHidden?.Invoke();
     }
 
     void InitializeSlots()
@@ -67,7 +84,7 @@ public class InventoryDisplayer : MonoBehaviour
     {
         return () =>
         {
-            SlotClicked.Invoke(slot);
+            SlotClicked?.Invoke(slot);
         };
     }
 }

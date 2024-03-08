@@ -40,6 +40,8 @@ public class ItemSlotDisplay : MonoBehaviour
         _slotData.ItemSold += UpdateAmount;
 
         _slotData.ItemSold += CheckAvailability;
+
+        _priceIndicator.SetActive(false);
     }
 
     private void OnDestroy()
