@@ -6,6 +6,8 @@ public class InventoryItemPop_Sell : InventoryItemPopUp
 {
     [SerializeField] private Button _sellButton;
 
+    private Inventory _sellInitiator;
+
     protected override void ShowDetails(ItemSlotDisplay itemSlot)
     {
         _sellButton.onClick.RemoveAllListeners();
@@ -15,12 +17,16 @@ public class InventoryItemPop_Sell : InventoryItemPopUp
         _sellButton.onClick.AddListener(BuyEvent(itemSlot));
     }
 
+    public void SetInitiator(Inventory initiator)
+    {
+        _sellInitiator = initiator;
+    }
+
     private UnityAction BuyEvent(ItemSlotDisplay itemSlot)
     {
         return () =>
         {
-            // CHANGE HERE
-            itemSlot.SlotData.Sell();
+            TransferUtilities.CommitTransfer(Player.Instance.Inventory, _sellInitiator, itemSlot.SlotData.SellingItem);
 
             if (itemSlot.SlotData.Amount <= 0)
             {

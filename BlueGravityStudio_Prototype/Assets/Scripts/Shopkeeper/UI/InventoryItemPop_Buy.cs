@@ -19,7 +19,7 @@ public class InventoryItemPop_Buy : InventoryItemPopUp
     {
         return () =>
         {
-            itemSlot.SlotData.Sell();
+            TransferUtilities.CommitTransfer(_inventoryDisplayer.Inventory, Player.Instance.Inventory, itemSlot.SlotData.SellingItem);
 
             if (itemSlot.SlotData.Amount <= 0)
             {

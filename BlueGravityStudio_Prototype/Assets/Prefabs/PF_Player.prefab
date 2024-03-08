@@ -81,6 +81,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88c481571a381754291a5585e0cb6127, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _inventory: {fileID: 686802918}
 --- !u!114 &4501195118583102471
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -144,8 +145,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _availableItems:
-  - SellingItem: {fileID: 11400000, guid: a2424030889bfd74fa31454c28f18072, type: 2}
-    Amount: 15
+  - _amount: 15
+    SellingItem: {fileID: 11400000, guid: a2424030889bfd74fa31454c28f18072, type: 2}
 --- !u!1 &4501195119242390315
 GameObject:
   m_ObjectHideFlags: 0

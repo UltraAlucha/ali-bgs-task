@@ -5,6 +5,7 @@ using UnityEngine;
 public class Inventory : MonoBehaviour
 {
     [SerializeField] private List<ItemData> _availableItems;
+    [SerializeField] private bool _removeObjectsOnRunOut;
 
     public List<ItemData> AvailableItems => _availableItems;
 
@@ -16,7 +17,7 @@ public class Inventory : MonoBehaviour
 
         var itemData = _availableItems.Find(x => x.SellingItem == item);
 
-        if (item == null)
+        if (itemData == null)
         {
            var newItemData = new ItemData(item);
             
@@ -34,15 +35,20 @@ public class Inventory : MonoBehaviour
     {
         var itemData = _availableItems.Find(x => x.SellingItem == item);
 
-        if (item == null)
+        if (itemData == null)
         {
             return null;
         }
         else
         {
-            if(itemData.Amount > 1)
+            if(itemData.Amount > 0)
             {
                 itemData.Amount--;
+
+                if (_removeObjectsOnRunOut && itemData.Amount == 0)
+                {
+                    _availableItems.Remove(itemData);
+                }
             }
 
             OnInventoryChanged?.Invoke();
@@ -57,4 +63,11 @@ public class Inventory : MonoBehaviour
     }
 }
 
-//TODO: Create TransferData Struct if needed
+public class TransferData
+{
+    public Inventory From;
+    public Inventory To;
+    public InventoryViewMode Mode;
+}
+
+//TODO: Create TransferData Class if needed

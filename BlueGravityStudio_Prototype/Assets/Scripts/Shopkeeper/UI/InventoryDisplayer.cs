@@ -17,6 +17,8 @@ public class InventoryDisplayer : MonoBehaviour
     [SerializeField] private ItemSlotDisplay _slotPrefab;
     [SerializeField] private InventoryViewMode _viewMode;
 
+    public Inventory Inventory => _inventory;
+
     public InventoryViewMode ViewMode
     {
         get { return _viewMode; }
@@ -34,19 +36,16 @@ public class InventoryDisplayer : MonoBehaviour
     public Action BuyRequested;
     public Action ViewRequested;
 
-    private void OnEnable()
+    private void Start()
     {
-        InitializeSlots();
-    }
 
-    private void OnDisable()
-    {
-        Deinitialize();
     }
 
     public void ShowPanel()
     {
         _panel.SetActive(true);
+
+        InitializeSlots();
 
         PanelShown?.Invoke();
     }
@@ -55,6 +54,8 @@ public class InventoryDisplayer : MonoBehaviour
     {
         _panel.SetActive(false);
 
+        Deinitialize();
+
         PanelHidden?.Invoke();
     }
 
@@ -62,6 +63,8 @@ public class InventoryDisplayer : MonoBehaviour
     {
         foreach (var itemData in _inventory.AvailableItems)
         {
+            Debug.Log($"{itemData.SellingItem.DisplayName}");
+
             var slot = Instantiate(_slotPrefab, _contentParent);
 
             slot.Initialize(itemData);
@@ -88,8 +91,13 @@ public class InventoryDisplayer : MonoBehaviour
         };
     }
 
-    public void SetViewMode(InventoryViewMode viewMode)
+    public void SetViewMode_Sell()
     {
-        _viewMode = viewMode;
+        _viewMode = InventoryViewMode.Sell;
+    }
+
+    public void SetViewMode_Buy()
+    {
+        _viewMode = InventoryViewMode.Buy;
     }
 }
