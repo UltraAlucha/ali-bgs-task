@@ -147,6 +147,7 @@ MonoBehaviour:
   _availableItems:
   - _amount: 15
     SellingItem: {fileID: 11400000, guid: a2424030889bfd74fa31454c28f18072, type: 2}
+  _removeObjectsOnRunOut: 1
 --- !u!1 &4501195119242390315
 GameObject:
   m_ObjectHideFlags: 0

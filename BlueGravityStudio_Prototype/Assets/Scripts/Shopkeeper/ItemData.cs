@@ -12,8 +12,6 @@ public class ItemData
         get => _amount;
         set
         {
-            UnityEngine.Debug.Log($"{value} ABA  {_amount}");
-
             _amount = value;
             ItemSold?.Invoke(this);
 

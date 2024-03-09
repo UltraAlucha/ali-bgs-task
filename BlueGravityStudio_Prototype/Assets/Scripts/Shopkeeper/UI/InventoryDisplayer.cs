@@ -63,8 +63,6 @@ public class InventoryDisplayer : MonoBehaviour
     {
         foreach (var itemData in _inventory.AvailableItems)
         {
-            Debug.Log($"{itemData.SellingItem.DisplayName}");
-
             var slot = Instantiate(_slotPrefab, _contentParent);
 
             slot.Initialize(itemData);

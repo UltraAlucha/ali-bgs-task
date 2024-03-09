@@ -23,8 +23,6 @@ public class InventoryPopUpManager : MonoBehaviour
 
     private void ActivateProperPopUp()
     {
-        Debug.Log(_inventoryDisplayer.ViewMode);
-
         var properPopUp = _sockets.Find(x => x.ViewMode == _inventoryDisplayer.ViewMode);
 
         properPopUp.PopUp.Activate();

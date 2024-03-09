@@ -473,6 +473,42 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: InventoryDisplayer, Assembly-CSharp
+        m_MethodName: SetViewMode_Sell
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: InventoryItemPop_Sell, Assembly-CSharp
+        m_MethodName: SetInitiator
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 854687340}
+          m_ObjectArgumentAssemblyTypeName: Inventory, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: InventoryDisplayer, Assembly-CSharp
+        m_MethodName: ShowPanel
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &336517774
 GameObject:
   m_ObjectHideFlags: 0
@@ -1176,6 +1212,7 @@ MonoBehaviour:
     SellingItem: {fileID: 11400000, guid: f56cb9ba6faa7ff42b7d4a8ce59a231b, type: 2}
   - _amount: 3
     SellingItem: {fileID: 11400000, guid: 37cf71c3c9f3cd44e92bc8e578028038, type: 2}
+  _removeObjectsOnRunOut: 0
 --- !u!1 &4681038182700835675
 GameObject:
   m_ObjectHideFlags: 0
