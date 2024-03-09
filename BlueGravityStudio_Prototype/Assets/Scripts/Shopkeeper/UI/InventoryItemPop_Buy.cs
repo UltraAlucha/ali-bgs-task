@@ -20,13 +20,9 @@ public class InventoryItemPop_Buy : InventoryItemPopUp
     {
         return () =>
         {
-            Debug.Log($"{_payWith.Amount} | {itemSlot.SlotData.SellingItem.Price}");
-
             if (_payWith.Amount < itemSlot.SlotData.SellingItem.Price) return;
 
             _payWith.Amount -= itemSlot.SlotData.SellingItem.Price;
-
-            Debug.Log($"PURCHASED");
 
             TransferUtilities.CommitTransfer(_inventoryDisplayer.Inventory, Player.Instance.Inventory, itemSlot.SlotData.SellingItem);
 
