@@ -1,18 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class Inventory : MonoBehaviour
 {
-    [SerializeField] private List<ItemData> _availableItems;
+    [SerializeField] protected List<ItemData> _availableItems;
 
     public List<ItemData> AvailableItems => _availableItems;
 
     public Action OnInventoryChanged;
 
-    public virtual void AddItem(SellingItem item)
+    public virtual ItemData AddItem(SellingItem item)
     {
-        if (item == null) return;
+        if (item == null) return null;
 
         var itemData = _availableItems.Find(x => x.SellingItem == item);
 
@@ -28,6 +29,8 @@ public class Inventory : MonoBehaviour
         }
 
         OnInventoryChanged?.Invoke();
+
+        return itemData;
     }
 
     public virtual SellingItem RemoveItem(SellingItem item)

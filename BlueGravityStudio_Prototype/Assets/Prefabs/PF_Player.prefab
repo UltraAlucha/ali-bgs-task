@@ -133,6 +133,7 @@ GameObject:
   - component: {fileID: 1112121056}
   - component: {fileID: 1112121057}
   - component: {fileID: 1112121058}
+  - component: {fileID: 1112121059}
   m_Layer: 0
   m_Name: PF_Player
   m_TagString: Untagged
@@ -170,6 +171,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _inventory: {fileID: 686802918}
+  _equipmentInventory: {fileID: 1112121059}
 --- !u!114 &4501195118583102471
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -321,6 +323,29 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _characterMovement: {fileID: 4501195118583102471}
   _animator: {fileID: 1112121057}
+--- !u!114 &1112121059
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4501195118583102467}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc25c04188dd90645a6df34c9b15f510, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _availableItems: []
+  _playerInventory: {fileID: 686802918}
+  InventorySlots:
+  - ItemData:
+      _amount: 0
+      SellingItem: {fileID: 0}
+    EquipmentType: 0
+  - ItemData:
+      _amount: 0
+      SellingItem: {fileID: 0}
+    EquipmentType: 1
 --- !u!1 &4501195119242390315
 GameObject:
   m_ObjectHideFlags: 0

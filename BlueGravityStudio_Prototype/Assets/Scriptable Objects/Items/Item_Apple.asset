@@ -13,5 +13,6 @@ MonoBehaviour:
   m_Name: Item_Apple
   m_EditorClassIdentifier: 
   DisplayName: Apple
-  DisplayIcon: {fileID: 21300000, guid: adaac68d8e5d693499597113889d11d3, type: 3}
+  DisplayIcon: {fileID: 192839437, guid: 4800a3553ea17344a83413a411b514da, type: 3}
   Price: 85
+  EquipmentType: 0

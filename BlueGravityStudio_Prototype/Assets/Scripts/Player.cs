@@ -19,6 +19,8 @@ public class Player : MonoBehaviour
     }
 
     [SerializeField] private Inventory _inventory;
+    [SerializeField] private EquipmentInventory _equipmentInventory;
 
     public Inventory Inventory => _inventory;
+    public EquipmentInventory EquipmentInventory => _equipmentInventory;
 }

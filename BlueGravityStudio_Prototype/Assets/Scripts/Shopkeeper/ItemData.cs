@@ -31,4 +31,10 @@ public class ItemData
         SellingItem = sellingItem;
         _amount = amount;
     }
+
+    public void SetData(SellingItem sellingItem, int amount = 1)
+    {
+        SellingItem = sellingItem;
+        _amount = amount;
+    }
 }

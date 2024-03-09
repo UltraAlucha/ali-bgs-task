@@ -15,3 +15,4 @@ MonoBehaviour:
   DisplayName: Meat
   DisplayIcon: {fileID: 21300000, guid: 3df3c7a773f95f5429f29f0c38bee4a1, type: 3}
   Price: 120
+  EquipmentType: 1

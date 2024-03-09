@@ -93,6 +93,11 @@ public class InventoryDisplayer : MonoBehaviour
         };
     }
 
+    public void SetViewMode_View()
+    {
+        _viewMode = InventoryViewMode.View;
+    }
+
     public void SetViewMode_Sell()
     {
         _viewMode = InventoryViewMode.Sell;
