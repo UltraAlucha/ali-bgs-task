@@ -1212,7 +1212,6 @@ MonoBehaviour:
     SellingItem: {fileID: 11400000, guid: f56cb9ba6faa7ff42b7d4a8ce59a231b, type: 2}
   - _amount: 3
     SellingItem: {fileID: 11400000, guid: 37cf71c3c9f3cd44e92bc8e578028038, type: 2}
-  _removeObjectsOnRunOut: 0
 --- !u!1 &4681038182700835675
 GameObject:
   m_ObjectHideFlags: 0
