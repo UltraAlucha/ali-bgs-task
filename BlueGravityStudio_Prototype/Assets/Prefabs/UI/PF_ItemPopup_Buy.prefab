@@ -231,6 +231,7 @@ MonoBehaviour:
   _priceText: {fileID: 158413379937848040}
   _body: {fileID: 7060438024722220524}
   _buyButton: {fileID: 2120075223188978703}
+  _payWith: {fileID: 11400000, guid: dd1bcf23455fc804dad22321c676e216, type: 2}
 --- !u!1 &3778652434755922177
 GameObject:
   m_ObjectHideFlags: 0

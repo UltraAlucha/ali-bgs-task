@@ -25,4 +25,9 @@ public class Resource : ScriptableObject
             AmountChanged?.Invoke();
         }
     }
+
+    public void AddAmount(int amount)
+    {
+        Amount += amount; 
+    }
 }
