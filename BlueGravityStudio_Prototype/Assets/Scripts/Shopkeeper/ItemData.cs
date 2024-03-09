@@ -4,7 +4,7 @@ using static UnityEditor.Progress;
 [Serializable]
 public class ItemData
 {
-    public int _amount;
+    public int _amount = 1;
 
     public SellingItem SellingItem;
     public int Amount

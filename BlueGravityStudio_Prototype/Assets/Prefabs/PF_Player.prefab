@@ -240,11 +240,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e031d3b241a5c1c4a9b8b9729abf85f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _availableItems:
-  - _amount: 1
-    SellingItem: {fileID: 11400000, guid: 377e725878072514e9d46f4d02d95ced, type: 2}
-  - _amount: 1
-    SellingItem: {fileID: 11400000, guid: 37cf71c3c9f3cd44e92bc8e578028038, type: 2}
+  _availableItems: []
 --- !u!212 &1112121056
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -345,7 +341,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _availableItems:
   - _amount: 1
-    SellingItem: {fileID: 11400000, guid: 377e725878072514e9d46f4d02d95ced, type: 2}
+    SellingItem: {fileID: 11400000, guid: a2424030889bfd74fa31454c28f18072, type: 2}
   _playerInventory: {fileID: 686802918}
   InventorySlots:
   - ItemData:

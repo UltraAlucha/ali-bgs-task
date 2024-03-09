@@ -1,7 +1,7 @@
 ﻿using UnityEditor.Animations;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "Item_", menuName = "CustomSO")]
+[CreateAssetMenu(fileName = "Item_", menuName = "ItemSO")]
 public class SellingItem : ScriptableObject
 {
     public string DisplayName;
