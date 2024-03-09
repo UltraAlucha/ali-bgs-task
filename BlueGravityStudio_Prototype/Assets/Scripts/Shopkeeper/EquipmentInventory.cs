@@ -15,7 +15,6 @@ public class EquipmentInventory : Inventory
     {
         public ItemData ItemData;
         public EquipmentType EquipmentType;
-
     }
 
     private void Awake()

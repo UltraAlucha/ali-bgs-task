@@ -1,5 +1,4 @@
-﻿using UnityEditor.Animations;
-using UnityEngine;
+﻿using UnityEngine;
 
 [CreateAssetMenu(fileName = "Item_", menuName = "ItemSO")]
 public class SellingItem : ScriptableObject
