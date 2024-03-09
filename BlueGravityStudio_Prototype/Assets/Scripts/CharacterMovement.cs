@@ -19,7 +19,7 @@ public class CharacterMovement : MonoBehaviour
         _rigidBody = GetComponent<Rigidbody2D>();
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         HandleHorizontalMovement();
 
