@@ -10,7 +10,7 @@ public class Inventory : MonoBehaviour
 
     public Action OnInventoryChanged;
 
-    public void AddItem(SellingItem item)
+    public virtual void AddItem(SellingItem item)
     {
         if (item == null) return;
 
@@ -30,7 +30,7 @@ public class Inventory : MonoBehaviour
         OnInventoryChanged?.Invoke();
     }
 
-    public SellingItem RemoveItem(SellingItem item)
+    public virtual SellingItem RemoveItem(SellingItem item)
     {
         var itemData = _availableItems.Find(x => x.SellingItem == item);
 

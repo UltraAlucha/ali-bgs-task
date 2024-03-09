@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 4800a3553ea17344a83413a411b514da
+guid: eec33fe56e22e3240b997e3611a4bffe
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -104,7 +104,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: idle_48x48_1_0
+      name: idle_48x48_2_0
       rect:
         serializedVersion: 2
         x: 0
@@ -118,14 +118,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cf79791775473184c801cc01a3bc431f
-      internalID: 192839437
+      spriteID: 8d197390e0abd2348bf579305117510e
+      internalID: 1147962651
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: idle_48x48_1_1
+      name: idle_48x48_2_1
       rect:
         serializedVersion: 2
         x: 48
@@ -139,14 +139,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 29623e5955e114d408af3e21946b943c
-      internalID: 1817095774
+      spriteID: 3f9e724cffaca3c4689fc92b55de1be3
+      internalID: -653799069
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: idle_48x48_1_2
+      name: idle_48x48_2_2
       rect:
         serializedVersion: 2
         x: 96
@@ -160,14 +160,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4342fe41a5a980440ad3c7bee0435dbd
-      internalID: 1085694592
+      spriteID: 24a1dbbb990c0a24ea3f6fcacc31ef06
+      internalID: 1830943609
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: idle_48x48_1_3
+      name: idle_48x48_2_3
       rect:
         serializedVersion: 2
         x: 144
@@ -181,8 +181,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0b68137ad880c094193e954831d9e375
-      internalID: 264119995
+      spriteID: 512a81ace2660714988f4f3703a14035
+      internalID: 448685634
       vertices: []
       indices: 
       edges: []
@@ -198,10 +198,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      idle_48x48_1_3: 264119995
-      idle_48x48_1_1: 1817095774
-      idle_48x48_1_2: 1085694592
-      idle_48x48_1_0: 192839437
+      idle_48x48_2_3: 448685634
+      idle_48x48_2_1: -653799069
+      idle_48x48_2_0: 1147962651
+      idle_48x48_2_2: 1830943609
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
