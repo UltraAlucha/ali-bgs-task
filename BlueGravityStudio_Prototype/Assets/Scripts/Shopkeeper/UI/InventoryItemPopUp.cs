@@ -26,6 +26,8 @@ public class InventoryItemPopUp : MonoBehaviour
 
     protected virtual void ShowDetails(ItemSlotDisplay itemSlot)
     {
+        if (itemSlot.SlotData.Amount == 0) return;
+
         _body.SetActive(true);
 
         _displayText.text = itemSlot.SlotData.SellingItem.DisplayName;

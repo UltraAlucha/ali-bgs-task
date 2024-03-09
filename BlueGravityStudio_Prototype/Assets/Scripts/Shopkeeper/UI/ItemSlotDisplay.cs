@@ -26,20 +26,11 @@ public class ItemSlotDisplay : MonoBehaviour
 
         _iconImage.sprite = itemSO.DisplayIcon;
 
-        if (_slotData.Amount == 0)
-        {
-            CheckAvailability();
-
-            return;
-        }
-
         UpdateAmount(_slotData);
 
         _priceText.text = $"{itemSO.Price}";
 
         _slotData.ItemSold += UpdateAmount;
-
-        _slotData.ItemSold += CheckAvailability;
 
         _priceIndicator.SetActive(false);
     }
@@ -47,21 +38,10 @@ public class ItemSlotDisplay : MonoBehaviour
     private void OnDestroy()
     {
         _slotData.ItemSold -= UpdateAmount;
-
-        _slotData.ItemSold -= CheckAvailability;
     }
 
     void UpdateAmount(ItemData itemData)
     {
         _amountText.text = $"x{itemData.Amount}";
-    }
-
-    void CheckAvailability(ItemData itemData = null)
-    {
-        if (_slotData.Amount > 0) return;
-
-        _amountIndicator.SetActive(false);
-        _priceIndicator.SetActive(false);
-        _soldIndicator.SetActive(true);
     }
 }

@@ -13,8 +13,8 @@ public class ItemData
         set
         {
             _amount = value;
-            ItemSold?.Invoke(this);
 
+            ItemSold?.Invoke(this);
 
             if (_amount == 0)
             {

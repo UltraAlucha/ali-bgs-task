@@ -5,7 +5,6 @@ using UnityEngine;
 public class Inventory : MonoBehaviour
 {
     [SerializeField] private List<ItemData> _availableItems;
-    [SerializeField] private bool _removeObjectsOnRunOut;
 
     public List<ItemData> AvailableItems => _availableItems;
 
@@ -45,7 +44,7 @@ public class Inventory : MonoBehaviour
             {
                 itemData.Amount--;
 
-                if (_removeObjectsOnRunOut && itemData.Amount == 0)
+                if ( itemData.Amount == 0)
                 {
                     _availableItems.Remove(itemData);
                 }
@@ -62,12 +61,3 @@ public class Inventory : MonoBehaviour
         inventory.AddItem(RemoveItem(item));
     }
 }
-
-public class TransferData
-{
-    public Inventory From;
-    public Inventory To;
-    public InventoryViewMode Mode;
-}
-
-//TODO: Create TransferData Class if needed

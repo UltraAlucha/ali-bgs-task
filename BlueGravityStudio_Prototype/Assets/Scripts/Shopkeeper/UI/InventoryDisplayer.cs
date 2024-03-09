@@ -38,7 +38,7 @@ public class InventoryDisplayer : MonoBehaviour
 
     private void Start()
     {
-
+        _inventory.OnInventoryChanged += CheckRunOut;
     }
 
     public void ShowPanel()
@@ -61,8 +61,12 @@ public class InventoryDisplayer : MonoBehaviour
 
     void InitializeSlots()
     {
+        Deinitialize();
+
         foreach (var itemData in _inventory.AvailableItems)
         {
+            if (itemData == null || itemData.Amount == 0) continue;
+
             var slot = Instantiate(_slotPrefab, _contentParent);
 
             slot.Initialize(itemData);
@@ -97,5 +101,12 @@ public class InventoryDisplayer : MonoBehaviour
     public void SetViewMode_Buy()
     {
         _viewMode = InventoryViewMode.Buy;
+    }
+
+    private void CheckRunOut()
+    {
+        Deinitialize();
+
+        InitializeSlots();
     }
 }
