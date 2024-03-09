@@ -237,6 +237,12 @@ MonoBehaviour:
   _availableItems:
   - _amount: 15
     SellingItem: {fileID: 11400000, guid: a2424030889bfd74fa31454c28f18072, type: 2}
+  - _amount: 15
+    SellingItem: {fileID: 11400000, guid: 377e725878072514e9d46f4d02d95ced, type: 2}
+  - _amount: 15
+    SellingItem: {fileID: 11400000, guid: 37cf71c3c9f3cd44e92bc8e578028038, type: 2}
+  - _amount: 15
+    SellingItem: {fileID: 11400000, guid: f56cb9ba6faa7ff42b7d4a8ce59a231b, type: 2}
 --- !u!212 &1112121056
 SpriteRenderer:
   m_ObjectHideFlags: 0
