@@ -5,7 +5,10 @@ using UnityEngine;
 public class EquipmentInventory : Inventory
 {
     [SerializeField] private Inventory _playerInventory;
+
     public List<EquipmentSlot> InventorySlots = new();
+
+    public Action<SellingItem> OnNewItemEquip;
 
     [Serializable]
     public class EquipmentSlot
@@ -13,6 +16,11 @@ public class EquipmentInventory : Inventory
         public ItemData ItemData;
         public EquipmentType EquipmentType;
 
+    }
+
+    private void Awake()
+    {
+        InitializeEquipments();
     }
 
     public override ItemData AddItem(SellingItem item)
@@ -28,14 +36,26 @@ public class EquipmentInventory : Inventory
 
         var itemData = base.AddItem(item);
 
-        var equipmentSlot = InventorySlots.Find(x => x.EquipmentType == item.EquipmentType);
+        SetEquipment(item);
 
-        if (equipmentSlot != null)
-        {
-            equipmentSlot.ItemData.SetData(item);
-        }
+        OnNewItemEquip?.Invoke(item);
 
         return itemData;
+    }
+
+    private void SetEquipment(SellingItem item)
+    {
+        var equipmentSlot = InventorySlots.Find(x => x.EquipmentType == item.EquipmentType);
+
+        equipmentSlot?.ItemData.SetData(item);
+    }
+
+    void InitializeEquipments()
+    {
+        foreach (var item in AvailableItems)
+        {
+            SetEquipment(item.SellingItem);
+        }
     }
 
     public override SellingItem RemoveItem(SellingItem item)

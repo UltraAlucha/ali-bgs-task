@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using UnityEditor.Animations;
+using UnityEngine;
 
 [CreateAssetMenu(fileName = "Item_", menuName = "CustomSO")]
 public class SellingItem : ScriptableObject
@@ -7,6 +8,7 @@ public class SellingItem : ScriptableObject
     public Sprite DisplayIcon;
     public int Price;
     public EquipmentType EquipmentType;
+    public RuntimeAnimatorController Controller;
 }
 
 public enum EquipmentType
